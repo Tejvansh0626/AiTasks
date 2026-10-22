@@ -23,6 +23,9 @@ public class QuizQuestionController {
 
     @GetMapping("/quiz-list")
     public ResponseEntity<List<QuizQuestion>> getQuiz(@RequestParam("message") String message) {
+        if (message == null || message.isBlank()) {
+            throw new IllegalArgumentException("Message cannot be empty");
+        }
         return ResponseEntity.ok(quizService.generateQuiz(message));
 
     }
