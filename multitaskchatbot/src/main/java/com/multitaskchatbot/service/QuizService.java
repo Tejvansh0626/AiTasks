@@ -34,10 +34,10 @@ public class QuizService {
 
     //Generate simple string questions using stream
 
-    public Flux<String> generateStreamQuiz(String mesage) {
+    public Flux<String> generateStreamQuiz(String message) {
         return chatClient.prompt()
                 .system(quiz_sys_prompt)
-                .user(mesage)
+                .user(message)
                 .stream()
                 .content();
 
